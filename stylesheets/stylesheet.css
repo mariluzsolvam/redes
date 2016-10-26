@@ -60,7 +60,7 @@ a {
   background-image: linear-gradient(120deg, #155799, #159957); }
 
 .menu {
-  width: 1000px;
+  width: 100%;
   height: 40px;
   color: #fff;
   text-align: center;
