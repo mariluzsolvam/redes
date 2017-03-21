@@ -15,27 +15,27 @@
 ####################################
 	sudo usermod -aG dialout alumno_2017  # permisos para arduino, sino no reconoce el usb
 
-	sudo mv /home/alumno/Alice3/ /home/alumno_2017/.
+	sudo mv /home/alumno_solvam/Alice3/ /home/alumno_2017/.
 
 	sudo chown -R alumno_2017 /home/alumno_2017/Alice3
 
-	sudo mv /home/alumno/Android /home/alumno_2017/.
+	sudo mv /home/alumno_solvam/Android /home/alumno_2017/.
 	sudo chown -R alumno_2017 /home/alumno_2017/Android/
 
-	sudo mv /home/alumno/android-studio/ /home/alumno_2017/.
+	sudo mv /home/alumno_solvam/android-studio/ /home/alumno_2017/.
 	sudo chown -R alumno_2017 /home/alumno_2017/android-studio
 
-	sudo mv /home/alumno/VirtualBox\ VMs /home/alumno_2017/.
+	sudo mv /home/alumno_solvam/VirtualBox\ VMs /home/alumno_2017/.
 	sudo chown -R alumno_2017  /home/alumno_2017/VirtualBox\ VMs
 
-	sudo mv /home/alumno/.config/VirtualBox /home/alumno_2017/.config/.
-	sudo chown -R alumno_2017  /home/alumno_solvam/.config/VirtualBox
+	sudo mv /home/alumno_solvam/.config/VirtualBox /home/alumno_2017/.config/.
+	sudo chown -R alumno_2017  /home/alumno_2017/.config/VirtualBox
 
 	sudo chown -R alumno_2017 /home/VirtualBox
 	sudo chown -R alumno_2017 /home/virtualBox
 	sudo chown -R alumno_2017 /home/virtualbox
 	
-	sudo mv /home/alumno/eclipse\ EE/ /home/alumno_2017
+	sudo mv /home/alumno_solvam/eclipse\ EE/ /home/alumno_2017
 	sudo chown -R alumno_2017 /home/alumno_2017/eclipse\ EE/
 	
 	sudo rm -rf /var/www/html/*
