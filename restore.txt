@@ -87,13 +87,13 @@
 
 	echo "disable.android.first.run=true" >> /home/alumno_2017/android-studio/bin/idea.properties	
 	cd /home/alumno_2017/.config/VirtualBox
-	grep -rl 'alumno\/' ./ | xargs sed -i 's/alumno\//alumno_2017\//g'
+	grep -rl 'alumno_solvam\/' ./ | xargs sed -i 's/alumno_solvam\//alumno_2017\//g'
 	cd /home/alumno_2017/VirtualBox\ VMs
-	grep -rl 'alumno\/' ./ | xargs sed -i 's/alumno\//alumno_2017\//g'
+	grep -rl 'alumno_solvam\/' ./ | xargs sed -i 's/alumno_solvam\//alumno_2017\//g'
 
 	apm stars --user jacobos --install
 
-# ECLIPSE NEON 64 # primero como alumno_solvam
+# ECLIPSE NEON 64 # primero como alumno_2017
 
 ########################################## primero desde alumno_solvam
   cd
