@@ -95,7 +95,7 @@
 
 # ECLIPSE NEON 64 # primero como alumno_2017
 
-########################################## primero desde alumno_solvam
+########################################## primero desde alumno_2017
   cd
   wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
   tar xvf eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
@@ -136,14 +136,14 @@
 
 
 ######### copia de seguridad de android, alice, el config de virtualbox y eclipse ########
-	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_solvam/Alice3/ /home/alumno_solvam/Android/ /home/alumno_solvam/android-studio/ /home/alumno_solvam/eclipse/ /home/alumno_solvam/.config/VirtualBox/ 
+	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_2017/Alice3/ /home/alumno_2017/Android/ /home/alumno_2017/android-studio/ /home/alumno_2017/eclipse/ /home/alumno_2017/.config/VirtualBox/ 
 
 ############################################
 #     9 	solvam                     #
 #     falta borrar al usuario              #
-#     para borrar el usuario alumno seria  #
+#     para borrar el usuario alumno_solvam seria  #
 ############################################
-	userdel -r alumno
+	userdel -r alumno_solvam
 	
 #######################
 #         FIN         #
