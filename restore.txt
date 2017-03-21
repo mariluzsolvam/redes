@@ -1,0 +1,307 @@
+# antiguo test_f.txt
+# cambio "alumno" por "alumno_solvam"
+# cambio "alumno_solvam" por "alumno_2017"
+###########################################
+# desde el usuario solvam
+####################################
+#          1       solvam          #
+####################################
+# esta linea por separado, el resto del usuario solvam se puede hacer de una, copy+paste en la terminal
+	sudo adduser alumno_2017
+	
+# el resto para el usuario solvam sigue	
+####################################
+#          2       solvam          #
+####################################
+	sudo usermod -aG dialout alumno_2017  # permisos para arduino, sino no reconoce el usb
+
+	sudo mv /home/alumno/Alice3/ /home/alumno_2017/.
+
+	sudo chown -R alumno_2017 /home/alumno_2017/Alice3
+
+	sudo mv /home/alumno/Android /home/alumno_2017/.
+	sudo chown -R alumno_2017 /home/alumno_2017/Android/
+
+	sudo mv /home/alumno/android-studio/ /home/alumno_2017/.
+	sudo chown -R alumno_2017 /home/alumno_2017/android-studio
+
+	sudo mv /home/alumno/VirtualBox\ VMs /home/alumno_2017/.
+	sudo chown -R alumno_2017  /home/alumno_2017/VirtualBox\ VMs
+
+	sudo mv /home/alumno/.config/VirtualBox /home/alumno_2017/.config/.
+	sudo chown -R alumno_2017  /home/alumno_solvam/.config/VirtualBox
+
+	sudo chown -R alumno_2017 /home/VirtualBox
+	sudo chown -R alumno_2017 /home/virtualBox
+	sudo chown -R alumno_2017 /home/virtualbox
+	
+	sudo mv /home/alumno/eclipse\ EE/ /home/alumno_2017
+	sudo chown -R alumno_2017 /home/alumno_2017/eclipse\ EE/
+	
+	sudo rm -rf /var/www/html/*
+	sudo mkdir /var/www/html/alumno_2017
+	sudo chown -R alumno_2017 /var/www/html/alumno_2017/
+
+	cd
+	wget https://github.com/atom/atom/releases/download/v1.8.0/atom-amd64.deb
+	sudo dpkg -i atom-amd64.deb
+	wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+	sudo dpkg -i gitkraken-amd64.deb
+
+
+# isabel, como solvam
+	sudo apt-get update
+	
+	sudo apt-get install  -y openshot
+####################################
+#          3       solvam          #
+####################################
+	sudo apt-get install  -y frei0r-plugins
+####################################
+#          4       solvam          #
+####################################
+	sudo apt-get install  -y blender
+####################################
+#          5       solvam          #
+####################################
+	#solucion blender/Ubuntu/Mint 
+	
+	cd /usr/share/pyshared/openshot/blender/scripts/
+	sudo cp -f dissolve.py dissolve-back.py
+	
+	sudo sed -i 's/remove_disconnected_pieces/use_remove_disconnected/g' dissolve.py
+
+	sudo sed -i 's/settings.adaptive_subframes/settings.use_adaptive_subframes/g' dissolve.py
+	
+#para instalar el java
+  sudo add-apt-repository -y ppa:webupd8team/java
+  sudo apt-get -y update
+  sudo apt-get -y install oracle-java8-installer
+
+	
+# desde el usuario alumno_2017
+# copy + paste en la terminal
+####################################
+#          6       alumno_2017   #
+####################################
+
+	echo "disable.android.first.run=true" >> /home/alumno_2017/android-studio/bin/idea.properties	
+	cd /home/alumno_2017/.config/VirtualBox
+	grep -rl 'alumno\/' ./ | xargs sed -i 's/alumno\//alumno_2017\//g'
+	cd /home/alumno_2017/VirtualBox\ VMs
+	grep -rl 'alumno\/' ./ | xargs sed -i 's/alumno\//alumno_2017\//g'
+
+	apm stars --user jacobos --install
+
+# ECLIPSE NEON 64 # primero como alumno_solvam
+
+########################################## primero desde alumno_solvam
+  cd
+  wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
+  tar xvf eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
+  
+  echo "[Desktop Entry]" >  eclipse.desktop
+  echo "Encoding=UTF-8" >>  eclipse.desktop
+  echo "Name=Eclipse" >>  eclipse.desktop
+  echo "Comment=Eclipse IDE" >>  eclipse.desktop
+  echo "Exec=/home/alumno_solvam/eclipse/eclipse" >>  eclipse.desktop
+  echo "Terminal=false" >>  eclipse.desktop
+  echo "Icon[en_US]=/usr/share/pixmaps/eclipse.xpm  # location of icon file." >>  eclipse.desktop
+  echo "Type=Application" >>  eclipse.desktop
+  echo "Categories=GNOME;Application;Development;" >>  eclipse.desktop
+  echo "StartupNotify=true" >>  eclipse.desktop
+
+  
+  su solvam
+
+####################################
+#          7       solvam          #
+####################################
+########################################## line a ejecutar para tener al usuario activado con pass
+  
+  sudo echo hola
+
+####################################
+#          8       solvam          #
+####################################
+########################################## todo este apartado de una vez
+
+#para eclipse
+  sudo cp eclipse/icon.xpm /usr/share/pixmaps/eclipse.xpm
+  
+  sudo mv eclipse.desktop /usr/share/applications/.
+  
+  sudo chown root:root /usr/share/pixmaps/eclipse.xpm
+  sudo chown root:root /usr/share/applications/eclipse.desktop
+
+
+######### copia de seguridad de android, alice, el config de virtualbox y eclipse ########
+	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_solvam/Alice3/ /home/alumno_solvam/Android/ /home/alumno_solvam/android-studio/ /home/alumno_solvam/eclipse/ /home/alumno_solvam/.config/VirtualBox/ 
+
+############################################
+#     9 	solvam                     #
+#     falta borrar al usuario              #
+#     para borrar el usuario alumno seria  #
+############################################
+	userdel -r alumno
+	
+#######################
+#         FIN         #
+#######################
+
+
+
+
+
+
+
+
+# solvam (despuews de hacer lo anterior)
+# copia de seguridad en /home, la siguiente vez solamente habrá que borrar y añadir el usuario alumno_solvam
+# y mirar que en /var/www/html haya una carpeta con permisos para el usuario
+# y si queermemos los paquetes de atom del usuario jacobos hacer el 'apm stars --user jacobos --install'
+	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_solvam/Alice3/ /home/alumno_solvam/Android/ /home/alumno_solvam/android-studio/ /home/alumno_solvam/eclipse/ /home/alumno_solvam/.config/VirtualBox/ 
+
+#  cd
+#source http://www.infoworld.com/article/2695753/install-google-s-chrome-browser-in-linux-mint-17.html
+#actualizamos chrome
+# para 64
+#  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#  sudo dpkg -i google-chrome-stable_current_amd64.deb
+# para 32
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+#  sudo dpkg -i google-chrome-stable_current_i386.deb
+
+
+
+
+
+
+
+# del año pasado (solo como backup, no utilizar)
+# VISOR REMOTO Y CONTROL REMOTO
+    sudo apt-get install vinagre
+    sudo apt-get install php5-cli
+    sudo apt-get install epoptes
+    sudo apt-get install epoptes-client
+
+        para epoptes (control remoto, control de la clase)
+        en el ordenador que controlara (servidor)
+
+        1) (synaptic) instalar epoptes
+        2) (synaptic) instalar epoptes-client (si no no funciona bien)
+        3) sudo gpasswd -a solvam epoptes
+        (añadimos al usuario, será el profesor con usuario alumno en el dia que toque,
+        osea --> sudo gpasswd -a alumno epoptes)
+        4) reiniciar (cerrar sesión) (para que funcione)
+
+        en los ordenadores de los alumnos
+        1) sudo apt-get install epoptes-client
+        2) sudo gedit /etc/default/epoptes-client
+        (poner la ip del profes en server)
+        3) sudo epoptes-client -c
+        4) reiniciar (cerrar sesión)
+        (si cambiamos el ordenador servidor habrá que repetir 2) 3) y 4)
+
+
+# IDIOMAS GIMP Y OFFICE, e INSTALAR EL BASE
+    sudo apt-get install language-pack-gnome-es language-pack-gnome-es-base #idioma para el gimp
+    sudo apt-get install libreoffice-base #instalar base
+    sudo apt-get install -y libreoffice-l10n-es #libreoffice esp
+
+#BAJAR VELOCIDAD DE LA RED
+    sudo apt-get install ethtool
+    # crear archivo /etc/init.d/10Mbs  #bajamos la velocidad de la red
+
+        #!/bin/sh
+        ethtool -s eth0 speed 10 duplex half autoneg off
+
+    sudo chmod +x /etc/init.d/10Mbs
+    cd /etc/init.d
+    sudo update-rc.d 10Mbs defaults
+    /etc/init.d/10Mbs start # ejecutamos el script, si no funciona vamos direcamente a la carpeta y lo lanzamos
+    ethtool eth0 # comprobamos que funciona
+
+#para añadir a alumno_solvam al grupo de superusuarios
+#To create a new user with admin privileges in Ubuntu 12.04 and later:
+
+adduser <username> sudo
+#In Ubuntu 11.10 and earlier, use this instead:
+
+adduser <username> admin
+#To modify a existing user (12.04 and later):
+
+sudo usermod -aG sudo <username>
+#(Or for 11.10 and earlier: sudo usermod -aG admin <username>)
+
+-#a stands for append whereas -G stands for groups. With the -a and -G flags as shown above, the sudo (or admin) group will be added to the list of groups of which the user is a member.
+
+
+
+
+# isabel, como solvam
+	sudo echo hola
+	# y despues ya lo que sigue todo junto
+	sudo apt-get update
+	
+	sudo apt-get install -y openshot
+	
+	sudo apt-get install -y frei0r-plugins
+	
+	sudo apt-get install -y blender
+	
+	
+	#solucion blendser/Ubuntu/Mint 
+	
+	cd /usr/share/pyshared/openshot/blender/scripts/
+	sudo cp -f dissolve.py dissolve-back.py
+	
+	sudo sed -i 's/remove_disconnected_pieces/use_remove_disconnected/g' dissolve.py
+
+	sudo sed -i 's/settings.adaptive_subframes/settings.use_adaptive_subframes/g' dissolve.py
+
+	
+	
+#sudo gedit /usr/share/pyshared/openshot/blender/scripts/dissolve.py
+#ActiveObjectText.modifiers['Remesh'].remove_disconnected_pieces=False
+#Cambiar a:
+#ActiveObjectText.modifiers['Remesh'].use_remove_disconnected = False
+#DATA HOSTED WITH ♥ BY PASTEBIN.COM - DOWNLOAD RAW - SEE ORIGINAL
+#ActiveObjectText.particle_systems['ParticleSystem'].settings.adaptive_subframes = True
+#Cambiar a:
+#ActiveObjectText.particle_systems['ParticleSystem'].settings.use_adaptive_subframes = True	
+
+
+
+# imagenes 
+	# Intenso
+		2015-emachineE625
+		2016-02-18-16-img-e720 (es win)
+		acer-5635zg-linuxMint-2015
+		acerplateado2015
+		Alice3_unix_Offline_3_2_5_0_0.sh
+		android-studio-ide-141.1903250-linux.zip
+		clonezilla-live-2.4.2-10-amd64.iso
+		linuxmint-17.1-cinnamon-64bit.iso
+		msi-LinuxMint-2015
+		pavilion-g6-LinuxMint
+		windows2008server.iso
+		windtopGa
+		windtopGestion
+	# toshiba sin marca encima
+		2013-09-13-13-acerp253e
+		2015-HP620
+		acerplateado2015
+		cubogestion2014
+		DELLGESTIOON
+		emachinesE520LinuxMint
+		maquinasVirtualBox
+		msi-LinuxMint-2015
+		OrdenadorSalaP
+		Software
+		Tacens-LinuxMint
+		VirtualBox
+		trabPegati
+
+
+
