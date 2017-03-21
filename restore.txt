@@ -49,7 +49,7 @@
 	sudo dpkg -i gitkraken-amd64.deb
 
 
-# isabel, como solvam
+# isabel, como solvam 
 	sudo apt-get update
 	
 	sudo apt-get install  -y openshot
@@ -89,6 +89,8 @@
 	cd /home/alumno_2017/.config/VirtualBox
 	grep -rl 'alumno_solvam\/' ./ | xargs sed -i 's/alumno_solvam\//alumno_2017\//g'
 	cd /home/alumno_2017/VirtualBox\ VMs
+	
+	# este da error
 	grep -rl 'alumno_solvam\/' ./ | xargs sed -i 's/alumno_solvam\//alumno_2017\//g'
 
 	apm stars --user jacobos --install
@@ -158,6 +160,9 @@
 
 # solvam (despuews de hacer lo anterior)
 # copia de seguridad en /home, la siguiente vez solamente habrá que borrar y añadir el usuario alumno_solvam
+cd /home
+sudo mkdir backup
+
 # y mirar que en /var/www/html haya una carpeta con permisos para el usuario
 # y si queermemos los paquetes de atom del usuario jacobos hacer el 'apm stars --user jacobos --install'
 	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_solvam/Alice3/ /home/alumno_solvam/Android/ /home/alumno_solvam/android-studio/ /home/alumno_solvam/eclipse/ /home/alumno_solvam/.config/VirtualBox/ 
