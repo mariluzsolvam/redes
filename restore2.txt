@@ -1,36 +1,43 @@
-
+# usuario alumno_solvam pasa a ser alumno
+# desde el usuario solvam
+####################################
+#          1       solvam          #
+####################################
+# esta linea por separado, el resto del usuario solvam se puede hacer de una, copy+paste en la terminal
+	sudo adduser alumno
 	
 # el resto para el usuario solvam sigue	
 ####################################
 #          2       solvam          #
 ####################################
+	sudo usermod -aG dialout alumno  # permisos para arduino, sino no reconoce el usb
 
-	sudo mv /home/alumno_2017/Alice3/ /home/alumno_solvam/.
+	sudo mv /home/alumno_solvam/Alice3/ /home/alumno/.
 
-	sudo chown -R alumno_solvam /home/alumno_solvam/Alice3
+	sudo chown -R alumno /home/alumno/Alice3
 
-	sudo mv /home/alumno_solvam/Android /home/alumno_2017/.
-	sudo chown -R alumno_solvam /home/alumno_solvam/Android/
+	sudo mv /home/alumno_solvam/Android /home/alumno/.
+	sudo chown -R alumno /home/alumno/Android/
 
-	sudo mv /home/alumno_2017/android-studio/ /home/alumno_solvam/.
-	sudo chown -R alumno_solvam /home/alumno_solvam/android-studio
+	sudo mv /home/alumno_solvam/android-studio/ /home/alumno/.
+	sudo chown -R alumno /home/alumno/android-studio
 
-	sudo mv /home/alumno_2017/VirtualBox\ VMs /home/alumno_solvam/.
-	sudo chown -R alumno_solvam  /home/alumno_solvam/VirtualBox\ VMs
+	sudo mv /home/alumno_solvam/VirtualBox\ VMs /home/alumno/.
+	sudo chown -R alumno  /home/alumno/VirtualBox\ VMs
 
-	sudo mv /home/alumno_2017/.config/VirtualBox /home/alumno_solvam/.config/.
-	sudo chown -R alumno_solvam  /home/alumno_solvam/.config/VirtualBox
+	sudo mv /home/alumno_solvam/.config/VirtualBox /home/alumno/.config/.
+	sudo chown -R alumno  /home/alumno/.config/VirtualBox
 
-	sudo chown -R alumno_solvam /home/VirtualBox
-	sudo chown -R alumno_solvam /home/virtualBox
-	sudo chown -R alumno_solvam /home/virtualbox
+	sudo chown -R alumno /home/VirtualBox
+	sudo chown -R alumno /home/virtualBox
+	sudo chown -R alumno /home/virtualbox
 	
-	sudo mv /home/alumno_2017/eclipse/ /home/alumno_solvam
-	sudo chown -R alumno_solvam /home/alumno_solvam/eclipse/
+	sudo mv /home/alumno_solvam/eclipse\ EE/ /home/alumno
+	sudo chown -R alumno /home/alumno/eclipse\ EE/
 	
 	sudo rm -rf /var/www/html/*
-	sudo mkdir /var/www/html/alumno_solvam
-	sudo chown -R alumno_solvam /var/www/html/alumno_solvam/
+	sudo mkdir /var/www/html/alumno
+	sudo chown -R alumno /var/www/html/alumno/
 
 	cd
 	wget https://github.com/atom/atom/releases/download/v1.8.0/atom-amd64.deb
@@ -39,7 +46,7 @@
 	sudo dpkg -i gitkraken-amd64.deb
 
 
-# isabel, como solvam 
+# isabel, como solvam
 	sudo apt-get update
 	
 	sudo apt-get install  -y openshot
@@ -75,19 +82,17 @@
 #          6       alumno_solvam   #
 ####################################
 
-	echo "disable.android.first.run=true" >> /home/alumno_solvam/android-studio/bin/idea.properties	
-	cd /home/alumno_solvam/.config/VirtualBox
-	grep -rl 'alumno_2017\/' ./ | xargs sed -i 's/alumno_2017\//alumno_solvam\//g'
-	cd /home/alumno_solvam/VirtualBox\ VMs
-	
-	# este da error
-	grep -rl 'alumno_2017\/' ./ | xargs sed -i 's/alumno_2017\//alumno_solvam\//g'
+	echo "disable.android.first.run=true" >> /home/alumno/android-studio/bin/idea.properties	
+	cd /home/alumno/.config/VirtualBox
+	grep -rl 'alumno_solvam\/' ./ | xargs sed -i 's/alumno_solvam\//alumno\//g'
+	cd /home/alumno/VirtualBox\ VMs
+	grep -rl 'alumno_solvam\/' ./ | xargs sed -i 's/alumno_solvam\//alumno\//g'
 
 	apm stars --user jacobos --install
 
-# ECLIPSE NEON 64 # primero como alumno_2017
+# ECLIPSE NEON 64 # primero como alumno_solvam
 
-########################################## primero desde alumno_2017
+########################################## primero desde alumno_solvam
   cd
   wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
   tar xvf eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
@@ -96,7 +101,7 @@
   echo "Encoding=UTF-8" >>  eclipse.desktop
   echo "Name=Eclipse" >>  eclipse.desktop
   echo "Comment=Eclipse IDE" >>  eclipse.desktop
-  echo "Exec=/home/alumno_solvam/eclipse/eclipse" >>  eclipse.desktop
+  echo "Exec=/home/alumno/eclipse/eclipse" >>  eclipse.desktop
   echo "Terminal=false" >>  eclipse.desktop
   echo "Icon[en_US]=/usr/share/pixmaps/eclipse.xpm  # location of icon file." >>  eclipse.desktop
   echo "Type=Application" >>  eclipse.desktop
@@ -128,12 +133,12 @@
 
 
 ######### copia de seguridad de android, alice, el config de virtualbox y eclipse ########
-	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_solvam/Alice3/ /home/alumno_solvam/Android/ /home/alumno_solvam/android-studio/ /home/alumno_2017/eclipse/ /home/alumno_2017/.config/VirtualBox/ 
+	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno/Alice3/ /home/alumno/Android/ /home/alumno/android-studio/ /home/alumno/eclipse/ /home/alumno/.config/VirtualBox/ 
 
 ############################################
 #     9 	solvam                     #
 #     falta borrar al usuario              #
-#     para borrar el usuario alumno_solvam seria  #
+#     para borrar el usuario alumno seria  #
 ############################################
 	userdel -r alumno_solvam
 	
@@ -149,13 +154,10 @@
 
 
 # solvam (despuews de hacer lo anterior)
-# copia de seguridad en /home, la siguiente vez solamente habrá que borrar y añadir el usuario alumno_solvam
-cd /home
-sudo mkdir backup
-
+# copia de seguridad en /home, la siguiente vez solamente habrá que borrar y añadir el usuario alumno
 # y mirar que en /var/www/html haya una carpeta con permisos para el usuario
 # y si queermemos los paquetes de atom del usuario jacobos hacer el 'apm stars --user jacobos --install'
-	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno_solvam/Alice3/ /home/alumno_solvam/Android/ /home/alumno_solvam/android-studio/ /home/alumno_solvam/eclipse/ /home/alumno_solvam/.config/VirtualBox/ 
+	sudo tar -cvf /home/android_ecl_alic.tar /home/alumno/Alice3/ /home/alumno/Android/ /home/alumno/android-studio/ /home/alumno/eclipse/ /home/alumno/.config/VirtualBox/ 
 
 #  cd
 #source http://www.infoworld.com/article/2695753/install-google-s-chrome-browser-in-linux-mint-17.html
@@ -187,7 +189,7 @@ sudo mkdir backup
         2) (synaptic) instalar epoptes-client (si no no funciona bien)
         3) sudo gpasswd -a solvam epoptes
         (añadimos al usuario, será el profesor con usuario alumno en el dia que toque,
-        osea --> sudo gpasswd -a alumno epoptes)
+        osea --> sudo gpasswd -a alumno_solvam epoptes)
         4) reiniciar (cerrar sesión) (para que funcione)
 
         en los ordenadores de los alumnos
@@ -217,7 +219,7 @@ sudo mkdir backup
     /etc/init.d/10Mbs start # ejecutamos el script, si no funciona vamos direcamente a la carpeta y lo lanzamos
     ethtool eth0 # comprobamos que funciona
 
-#para añadir a alumno_solvam al grupo de superusuarios
+#para añadir a alumno_solvam grupo de superusuarios
 #To create a new user with admin privileges in Ubuntu 12.04 and later:
 
 adduser <username> sudo
