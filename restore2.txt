@@ -10,6 +10,12 @@
 ####################################
 #          2       solvam          #
 ####################################
+
+	sudo apt-get -y remove nodejs
+	sudo apt-get -y remove npm
+	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+	sudo apt-get install -y nodejs
+	
 	sudo usermod -aG dialout alumno  # permisos para arduino, sino no reconoce el usb
 
 	sudo mv /home/alumno_solvam/Alice3/ /home/alumno/.
