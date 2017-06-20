@@ -15,7 +15,7 @@
 	sudo apt-get -y remove npm
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	sudo apt-get install -y nodejs
-	
+###############	
 	sudo usermod -aG dialout alumno  # permisos para arduino, sino no reconoce el usb
 
 	sudo mv /home/alumno_solvam/Alice3/ /home/alumno/.
@@ -37,6 +37,8 @@
 	sudo chown -R alumno /home/VirtualBox
 	sudo chown -R alumno /home/virtualBox
 	sudo chown -R alumno /home/virtualbox
+	sudo chown -R alumno /home/Virtualbox
+
 	
 	sudo mv /home/alumno_solvam/eclipse\ EE/ /home/alumno
 	sudo chown -R alumno /home/alumno/eclipse\ EE/
@@ -52,7 +54,7 @@
 	sudo dpkg -i gitkraken-amd64.deb
 
 
-# isabel, como solvam
+# como solvam
 	sudo apt-get update
 	
 	sudo apt-get install  -y openshot
@@ -82,10 +84,10 @@
   sudo apt-get -y install oracle-java8-installer
 
 	
-# desde el usuario alumno_solvam
+# desde el usuario alumno
 # copy + paste en la terminal
 ####################################
-#          6       alumno_solvam   #
+#          6       alumno   #
 ####################################
 
 	echo "disable.android.first.run=true" >> /home/alumno/android-studio/bin/idea.properties	
@@ -96,9 +98,9 @@
 
 	apm stars --user jacobos --install
 
-# ECLIPSE NEON 64 # primero como alumno_solvam
+# ECLIPSE NEON 64 # primero como alumno
 
-########################################## primero desde alumno_solvam
+########################################## primero desde alumno
   cd
   wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
   tar xvf eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
@@ -146,7 +148,7 @@
 #     falta borrar al usuario              #
 #     para borrar el usuario alumno seria  #
 ############################################
-	userdel -r alumno_solvam
+	sudo userdel -r alumno_solvam
 	
 #######################
 #         FIN         #
