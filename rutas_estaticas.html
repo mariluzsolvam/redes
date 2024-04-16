@@ -34,6 +34,11 @@
      <p>En el diseño anterior hay 2 redes: la 1.0.0.0 y la 2.0.0.0</p>
      <p>El R1 está conectado directamente a la red 1.0.0.0 y no llega directamente a la red 2.0.0.0, por lo que debemos hacer una ruta estática en R1 
      indicando a quién debe entregar un paquete (Next Hop) cuyo destino sea la red 2.0.0.0 (Network)</p>
+     <p>De la misma manera, el R3 accede directamente a la red 2.0.0.0 pero si recibiera un paquete cuyo destino fuera
+     la red 1.0.0.0 este R3 no sería capaz de enrutarlo. Por lo que tenemos que configurar también una ruta estática en R3. Indicaremos a qué red (Network)
+     no llega y a quién le entrega el paquete para que lo redirija.</p>
+     <ul>R1: Network=2.0.0.0 Mask=255.0.0.0 Next Hop=1.0.0.2</ul>
+     <ul>R3: Network=1.0.0.0 Mask=255.0.0.0 Next Hop=2.0.0.2</ul>
      <iframe width="560" height="315" src="https://www.youtube.com/embed/C-lWhbYmuhM" frameborder="0" allowfullscreen></iframe>     
      <iframe width="560" height="315" src="https://www.youtube.com/embed/J66dWjr58us" frameborder="0" allowfullscreen></iframe>
       <footer class="site-footer">
