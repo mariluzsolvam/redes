@@ -68,6 +68,20 @@ Los datos para esta práctica son:
       <p> Configurar las VLAN en el switch y las IPs de los equipos</p>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/u81DuIsiIY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <p>Configurar el puerto de switch en modo troncal, configurar las subinterfaces del router y las puertas de enlace de los equipos.</p>
+      <p>
+        Router><br>enable</b>
+Router#<br>configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#<br>interface FastEthernet 0/0.1</b>
+Router(config-subif)#<br>encapsulation dot1q 10</b>
+Router(config-subif)#<br>ip address 192.168.10.1 255.255.255.0</b>
+Router(config-subif)#<br></b>
+Router(config)#<br>interface FastEthernet 0/0.2</b>
+Router(config-subif)#<br>encapsulation dot1q 20</b>
+Router(config-subif)#<br>ip address 192.168.20.1 255.255.255.0</b>
+Router(config-subif)#
+        
+      </p>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/Wl2fWkPGaxI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       
       <footer class="site-footer">
