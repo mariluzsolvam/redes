@@ -27,12 +27,13 @@
   <a href="rutas_estaticas.html" class="btn">RUTAS ESTÁTICAS</a>-->
 </section>
       
-<h3>CONFIGURACIÓN DE DOS VLAN EN UN SWITCH</h3>
+<h3>CONFIGURACIÓN DE 4 SUBREDES</h3>
 <p>
-En esta práctica, vamos a configurar 2 VLAN en un Switch. 
-Necesitarás entrar en la configuración del switch y crear 2 VLAN en la base de datos (VLAN Database) del switch.
-Para crear una VLAN, necesitas establecer un número de VLAN y un nombre de VLAN.
-Los datos para esta práctica son:
+En esta práctica, vamos a configurar los PCs para que cada grupo pertenezca a una subred. 
+La dirección de red es la 192.168.1.0, y hay que averiguar cuál sería la máscara de subred para 4 subredes.</p>
+      <p>La máscara por defecto es la 255.255.255.0 (11111111.11111111.11111111.00000000) y ahora tenemos que averiguar qué número elevamos al 2 para que nos de 4 (subredes): </p>
+      <p>2^x = 4 subredes, por lo tanto, x = 2. A la máscara por defecto le indicamos estos 2 bits como identificadore de subred, y quedaría 
+        así 11111111.11111111.11111111.<b>11</b>000000 que en decimal sería 255.255.255.192 </p>
   <li>Nº VLAN: 10</li>
 <li>Nombre VLAN: VLAN10</li>
 <li>Nº VLAN: 20</li>
