@@ -28,66 +28,40 @@
 </section>
       
 <h3>CONFIGURACIÓN DE 4 SUBREDES</h3>
-      <h4>MÁSCARA DE SUBRED</h4>
+<h4>MÁSCARA DE SUBRED</h4>
 <p>
 En esta práctica, vamos a configurar los PCs para que cada grupo pertenezca a una subred. 
-La dirección de red es la 192.168.1.0, y hay que averiguar cuál sería la máscara de subred para 4 subredes.</p>
-      <p>La máscara por defecto es la 255.255.255.0 (11111111.11111111.11111111.00000000) y ahora tenemos que averiguar qué número elevamos al 2 para que nos de 4 (subredes): </p>
-      <p>2^x = 4 subredes, por lo tanto, x = 2. A la máscara por defecto le indicamos estos 2 bits como identificadores de subred, y quedaría 
-        así 11111111.11111111.11111111.<b>11</b>000000 que en decimal sería 255.255.255.192 </p>
+La dirección de red es la 192.168.1.0, y hay que averiguar cuál sería la máscara de subred para 4 subredes.
+</p>
+<p>La máscara por defecto es la 255.255.255.0 (11111111.11111111.11111111.00000000) y ahora tenemos que averiguar qué número elevamos al 2 para que nos de 4 (subredes): 
+</p>
+<p>2^x = 4 subredes, por lo tanto, x = 2. A la máscara por defecto le indicamos estos 2 bits como identificadores de subred, y quedaría 
+así 11111111.11111111.11111111.<b>11</b>000000 que en decimal sería 255.255.255.192 
+</p>
+<h4>IDENTIFICADORES DE CADA SUBRED</h4>
+<p>Ahora,tenemos que hacer las combinaciones posibles en binario con esos dos bits obtenidos en el paso anterior y rellenar con 0 los bits de host:</p>  
+<p>1ª subred: 192.168.1.<b>00</b>000000 = 192.168.1.0</p>
+<p>2ª subred: 192.168.1.<b>01</b>000000 = 192.168.1.64</p>
+<p>3ª subred: 192.168.1.<b>10</b>000000 = 192.168.1.128</p>
+<p>4ª subred: 192.168.1.<b>11</b>000000 = 192.168.1.192</p>
+
+<h4>IDENTIFICADORES DE DIFUSIÓN/BROADCAST DE CADA SUBRED</h4>
+<p>Ni los identificadores de red ni los de difusión se pueden asignar a dispositivos, por lo tanto, tenemos que averiguarlos. Para ello, hay que hacer igual que con los
+  identificadores de red, pero rellenando los bits de host con 1:</p>  
+<p>1ª subred: 192.168.1.<b>00</b>111111 = 192.168.1.63</p>
+<p>2ª subred: 192.168.1.<b>01</b>111111 = 192.168.1.127</p>
+<p>3ª subred: 192.168.1.<b>10</b>111111 = 192.168.1.191</p>
+<p>4ª subred: 192.168.1.<b>11</b>111111 = 192.168.1.255</p>
+
+<h4>CONFIGURACIÓN DE LOS PCs</h4>
+<p>En cada PC hay que configurar sus parámetros de red: Dirección IP, máscara de subred y puerta de enlace.</p>
 <li>Nº VLAN: 10</li>
 <li>Nombre VLAN: VLAN10</li>
 <li>Nº VLAN: 20</li>
 <li>Nombre VLAN: VLAN20   </li>
 </p>
       
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7KY4svMaM-Y" frameborder="0" allowfullscreen></iframe>
 
-      <p>En el siguiente vídeo vas a definir los puertos del switch que van a pertener a la VLAN10 y los puertos que
-      van a pertenecer a la VLAN20. Para configurar este paso, tendrás que entrar en la configuración del switch y asignar cada VLAN
-      a los puertos que esté utilizando tu switch.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tamVhnt97wc" frameborder="0" allowfullscreen></iframe>
- <p>En el siguiente vídeo se crean las conexiones físicas entre el switch y los ordenadores. Hay que añadir los puertos necesarios 
-      al switch si este no tiene suficientes.</p>
-      
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FZRWLIJ5aHU" frameborder="0" allowfullscreen></iframe>    
-
-       <p>
-         En el siguiente vídeo verás cómo configurar las direcciones IP de los ordenadores.
-      </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PrSbpEqM6lk" frameborder="0" allowfullscreen></iframe>     
-
-             <p>
-         En el siguiente vídeo se envían paquetes de datos entre los ordenadores de una misma VLAN para comprobar el funcionamiento de las VLAN.
-      </p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Ql2o0W4LphM" frameborder="0" allowfullscreen></iframe>
-             <p>
-         En el siguiente vídeo se envían paquetes de datos entre distintas VLAN para comprobar que no se reciben.
-      </p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/1YCaMaybSB8" frameborder="0" allowfullscreen></iframe>
-     
-      <h3>Crear conexión troncal para dejar imprimir a equipos de diferentes VLAN</h3>
-      <p> Configurar las VLAN en el switch y las IPs de los equipos</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/u81DuIsiIY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p>Configurar el puerto de switch en modo troncal, configurar las subinterfaces del router y las puertas de enlace de los equipos.</p>
-      <p>Router><b>enable</b>
-      <br>Router#<b>configure terminal</b>
-      <br>Enter configuration commands, one per line.  End with CNTL/Z.
-      <br>Router(config)#<b>interface FastEthernet 0/0.1</b>
-      <br>Router(config-subif)#<b>encapsulation dot1q 10</b>
-      <br>Router(config-subif)#<b>ip address 192.168.10.1 255.255.255.0</b>
-      <br>Router(config-subif)#<b>Exit</b>
-      <br>Router(config)#<b>interface FastEthernet 0/0.2</b>
-      <br>Router(config-subif)#<b>encapsulation dot1q 20</b>
-      <br>Router(config-subif)#<b>ip address 192.168.20.1 255.255.255.0</b>
-      <br>Router(config-subif)#</p>
-
-        <p>Configurar las puertas de enlace siguientes:</p>
-        <p>Gateway 192.168.10.1 a la impresora
-        <br>Gateway 192.168.20.1 a los portatiles</p>
-      
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Wl2fWkPGaxI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/mariluzsolvam/redes">Redes</a> is maintained by <a href="https://github.com/mariluzsolvam">mariluzsolvam</a>.</span>
 
