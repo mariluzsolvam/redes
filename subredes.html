@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="UTF-8">
+    <title>Redes by mariluzsolvam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Redes</h1>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="bienvenidos-a-la-asignatura-redes-locales" class="anchor" href="#bienvenidos-a-la-asignatura-redes-locales" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bienvenidos a la asignatura Redes Locales</h1>
+
+<p>En esta página encontrarás vídeos y otros recursos para utilizar en la asignatura.<br>
+<section class="menu">
+      <a href="topologias.html" class="btn">Topologias</a>
+      <a href="latiguillos.html" class="btn">Cable de red</a>
+   <a href="vlan.html" class="btn">VLAN</a>
+ <!--  <a href="repetidor.html" class="btn">Configurar Repetidor</a>
+  <a href="rutas_estaticas.html" class="btn">RUTAS ESTÁTICAS</a>-->
+</section>
+      
+<h3>CONFIGURACIÓN DE DOS VLAN EN UN SWITCH</h3>
+<p>
+En esta práctica, vamos a configurar 2 VLAN en un Switch. 
+Necesitarás entrar en la configuración del switch y crear 2 VLAN en la base de datos (VLAN Database) del switch.
+Para crear una VLAN, necesitas establecer un número de VLAN y un nombre de VLAN.
+Los datos para esta práctica son:
+  <li>Nº VLAN: 10</li>
+<li>Nombre VLAN: VLAN10</li>
+<li>Nº VLAN: 20</li>
+<li>Nombre VLAN: VLAN20   </li>
+</p>
+      
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7KY4svMaM-Y" frameborder="0" allowfullscreen></iframe>
+
+      <p>En el siguiente vídeo vas a definir los puertos del switch que van a pertener a la VLAN10 y los puertos que
+      van a pertenecer a la VLAN20. Para configurar este paso, tendrás que entrar en la configuración del switch y asignar cada VLAN
+      a los puertos que esté utilizando tu switch.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tamVhnt97wc" frameborder="0" allowfullscreen></iframe>
+ <p>En el siguiente vídeo se crean las conexiones físicas entre el switch y los ordenadores. Hay que añadir los puertos necesarios 
+      al switch si este no tiene suficientes.</p>
+      
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FZRWLIJ5aHU" frameborder="0" allowfullscreen></iframe>    
+
+       <p>
+         En el siguiente vídeo verás cómo configurar las direcciones IP de los ordenadores.
+      </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PrSbpEqM6lk" frameborder="0" allowfullscreen></iframe>     
+
+             <p>
+         En el siguiente vídeo se envían paquetes de datos entre los ordenadores de una misma VLAN para comprobar el funcionamiento de las VLAN.
+      </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Ql2o0W4LphM" frameborder="0" allowfullscreen></iframe>
+             <p>
+         En el siguiente vídeo se envían paquetes de datos entre distintas VLAN para comprobar que no se reciben.
+      </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/1YCaMaybSB8" frameborder="0" allowfullscreen></iframe>
+     
+      <h3>Crear conexión troncal para dejar imprimir a equipos de diferentes VLAN</h3>
+      <p> Configurar las VLAN en el switch y las IPs de los equipos</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/u81DuIsiIY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Configurar el puerto de switch en modo troncal, configurar las subinterfaces del router y las puertas de enlace de los equipos.</p>
+      <p>Router><b>enable</b>
+      <br>Router#<b>configure terminal</b>
+      <br>Enter configuration commands, one per line.  End with CNTL/Z.
+      <br>Router(config)#<b>interface FastEthernet 0/0.1</b>
+      <br>Router(config-subif)#<b>encapsulation dot1q 10</b>
+      <br>Router(config-subif)#<b>ip address 192.168.10.1 255.255.255.0</b>
+      <br>Router(config-subif)#<b>Exit</b>
+      <br>Router(config)#<b>interface FastEthernet 0/0.2</b>
+      <br>Router(config-subif)#<b>encapsulation dot1q 20</b>
+      <br>Router(config-subif)#<b>ip address 192.168.20.1 255.255.255.0</b>
+      <br>Router(config-subif)#</p>
+
+        <p>Configurar las puertas de enlace siguientes:</p>
+        <p>Gateway 192.168.10.1 a la impresora
+        <br>Gateway 192.168.20.1 a los portatiles</p>
+      
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Wl2fWkPGaxI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mariluzsolvam/redes">Redes</a> is maintained by <a href="https://github.com/mariluzsolvam">mariluzsolvam</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
